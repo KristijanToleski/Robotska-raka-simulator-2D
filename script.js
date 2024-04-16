@@ -13,12 +13,12 @@ slider1.oninput = function() {
   servo1.style.transform = "rotate(" + (90 - this.value) + "deg)";
 }
 output1.oninput = function() {
-    if(this.value < 0) this.value = 0;
-    if(this.value > 90) this.value = 90;
+  if(this.value < 0) this.value = 0;
+  if(this.value > 90) this.value = 90;
 
-    slider1.value = this.value;
+  slider1.value = this.value;
   
-    servo1.style.transform = "rotate(" + (90 - this.value) + "deg)";
+  servo1.style.transform = "rotate(" + (90 - this.value) + "deg)";
 }
 
 // SERVO 2 AGOL MANUAL
@@ -33,12 +33,12 @@ slider2.oninput = function() {
   servo2.style.transform = "rotate(" + (180 - this.value) + "deg)";
 }
 output2.oninput = function() {
-    if(this.value < 0) this.value = 0;
-    if(this.value > 180) this.value = 180;
+  if(this.value < 0) this.value = 0;
+  if(this.value > 180) this.value = 180;
 
-    slider2.value = this.value;
+  slider2.value = this.value;
   
-    servo2.style.transform = "rotate(" + (180 - this.value) + "deg)";
+  servo2.style.transform = "rotate(" + (180 - this.value) + "deg)";
 }
 
 // SERVO 1 I 2 AGOL AUTO
@@ -47,17 +47,26 @@ let horizontalnoDvizenjeSlider = document.getElementById("horizontalnoDvizenjeSl
 let horizontalnoDvizenjeNumber = document.getElementById("horizontalnoDvizenjeNumber");
 
 horizontalnoDvizenjeSlider.oninput = function(){
-    horizontalnoDvizenjeNumber.value = this.value;
-    zadviziHoriznotalno(this.value);
+  horizontalnoDvizenjeNumber.value = this.value;
+  zadviziHoriznotalno(Number(this.value));
 }
 horizontalnoDvizenjeNumber.oninput = function(){
-    if(this.value < 0) this.value = 0;
-    if(this.value > 180) this.value = 180;
+  if(this.value < 0) this.value = 0;
+  if(this.value > 90) this.value = 90;
 
-    horizontalnoDvizenjeSlider.value = this.value;
-    zadviziHoriznotalno(this.value);
+  horizontalnoDvizenjeSlider.value = this.value;
+  zadviziHoriznotalno(Number(this.value));
 }
 
 function zadviziHoriznotalno(rastojanie){
-    
+  servo1.style.transform = "rotate(" + rastojanie + "deg)";
+
+  let agol2 = (180 - (90 + rastojanie)) * 2;
+
+  servo2.style.transform = "rotate(" + agol2 + "deg)";
+
+  slider1.value = rastojanie;
+  output1.value = rastojanie;
+  slider2.value = agol2;
+  output2.value = agol2;
 }
