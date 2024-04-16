@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Robotska raka</title>
+</head>
+<body>
+    <div class="inputs">
+        <div class="input">
+            <h3>СЕРВО 1 АГОЛ: </h3>
+            <input type="range" min="0" max="90" value="90" class="slider" id="servo1Agol">
+            <input type="number" min="0" max="90" value="90" class="number" id="agol1">
+        </div>
+        <div class="input">
+            <h3>СЕРВО 2 АГОЛ: </h3>
+            <input type="range" min="0" max="180" value="180" class="slider" id="servo2Agol">
+            <input type="number" min="0" max="180" value="180" class="number" id="agol2">
+        </div>
+        <div class="input">
+            <h3>ХОРИЗОНТАЛНО ДВИЖЕЊЕ: </h3>
+            <input type="range" min="0" max="180" value="0" class="slider" id="horizontalnoDvizenjeSlider">
+            <input type="number" min="0" max="180" value="0" class="number" id="horizontalnoDvizenjeNumber">
+        </div>
+    </div>
+
+    <div class="raka">
+        <hr class="list">
+        <div class="servo1">
+            <div class="servo2">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
