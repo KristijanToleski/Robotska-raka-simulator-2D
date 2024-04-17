@@ -11,27 +11,37 @@
 <body>
     <div class="inputs">
         <div class="input">
-            <h3>СЕРВО 1 АГОЛ: </h3>
-            <input type="range" min="0" max="90" value="90" class="slider" id="servo1Agol">
-            <input type="number" min="0" max="90" value="90" class="number" id="agol1">
+            <h3>СЕРВО 1 АГОЛ (α): </h3>
+            <input type="range" min="0" max="180" value="90" class="slider" id="servo1Agol">
+            <input type="number" min="0" max="180" value="90" class="number" id="agol1">
         </div>
         <div class="input">
-            <h3>СЕРВО 2 АГОЛ: </h3>
+            <h3>СЕРВО 2 АГОЛ (β): </h3>
             <input type="range" min="0" max="180" value="180" class="slider" id="servo2Agol">
             <input type="number" min="0" max="180" value="180" class="number" id="agol2">
         </div>
         <div class="input">
-            <h3>ХОРИЗОНТАЛНО ДВИЖЕЊЕ: </h3>
-            <input type="range" min="0" max="90" value="0" class="slider" id="horizontalnoDvizenjeSlider">
-            <input type="number" min="0" max="90" value="0" class="number" id="horizontalnoDvizenjeNumber">
+            <h3>ДОЛЖИНА СТРАНА a: </h3>
+            <input type="range" min="10" max="50" value="30" class="slider" id="dolzinaStranaBSlider">
+            <input type="number" min="10" max="50" value="30" class="number" id="dolzinaStranaBNumber">
         </div>
+        <div class="input">
+            <h3>ГРЕШКА: </h3>
+            <input type="range" min="-180" max="180" value="0" class="slider" id="greskaSlider">
+            <input type="number" min="-180" max="180" value="0" class="number" id="greskaNumber">
+        </div>
+        <div class="input">
+            <h3>ХОРИЗОНТАЛНО ДВИЖЕЊЕ: </h3>
+            <input type="range" min="0" max="60" value="0" class="slider" id="horizontalnoDvizenjeSlider">
+            <input type="number" min="0" max="60" value="0" class="number" id="horizontalnoDvizenjeNumber">
+        </div>
+        <img src="formuli.png" style="width: 90%;">
     </div>
 
     <div class="raka">
         <hr class="list">
         <div class="servo1">
             <div class="servo2">
-                
             </div>
         </div>
     </div>

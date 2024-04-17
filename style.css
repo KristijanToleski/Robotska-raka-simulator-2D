@@ -18,17 +18,16 @@ html, body{
 
 .servo1{
     width: 5px;
-    height: 40vh;
+    height: 30vh;
     background-color: red;
     position: relative;
     left: 40%;
-    top: 70%;
-    transform: translateY(-50%);
+    top: 60%;
     transform-origin: bottom;
 }
 .servo2{
     width: 5px;
-    height: 20vh;
+    height: 30vh;
     background-color: blue;
     position: relative;
     transform: translateY(-100%);
