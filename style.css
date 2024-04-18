@@ -33,6 +33,14 @@ html, body{
     transform: translateY(-100%);
     transform-origin: top;
 }
+.penkalo{
+    width: 2.5px;
+    height: 20vh;
+    background-color: green;
+    position: relative;
+    top: 65%;
+    transform: rotate(45deg);
+}
 
 .inputs{
     display: flex;

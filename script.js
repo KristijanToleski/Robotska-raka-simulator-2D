@@ -1,28 +1,7 @@
 let servo1 = document.getElementsByClassName("servo1")[0];
 let servo2 = document.getElementsByClassName("servo2")[0];
-let greska = 0;
+let greskaY = 0, greskaZ = 0;
 let maxHorizontalno = 60;
-
-// FUNKCII
-
-function postaviServo1Agol(agol){
-  if(agol < 0) agol = 0;
-  if(agol > 180) agol = 180;
-
-  servo1.style.transform = "rotate(" +(90 - agol)+ "deg)";
-
-  slider1.value = agol;
-  output1.value = agol;
-}
-function postaviServo2Agol(agol){
-  if(agol < 0) agol = 0;
-  if(agol > 180) agol = 180;
-
-  servo2.style.transform = "rotate(-" + agol + "deg)";
-
-  slider2.value = agol;
-  output2.value = agol;
-}
 
 // SERVO 1 AGOL MANUAL
 
@@ -86,7 +65,7 @@ dolzinaStranaBSlider.oninput = function(){
 }
 dolzinaStranaBNumber.oninput = function(){
   if(this.value < 10) this.value = 10;
-  if(this.value > 50) this.value = 50;
+  if(this.value > 100) this.value = 100;
 
   dolzinaStranaBSlider.value = this.value;
   
@@ -102,41 +81,62 @@ dolzinaStranaBNumber.oninput = function(){
 
 // GRESKA
 
-let greskaSlider = document.getElementById("greskaSlider");
-let greskaNumber = document.getElementById("greskaNumber");
+let greskaYNumber = document.getElementById("greskaYNumber");
+let greskaZNumber = document.getElementById("greskaZNumber");
 
-greskaSlider.oninput = function(){
-  greskaNumber.value = this.value;
-  greska = this.value;
+greskaYNumber.oninput = function(){
+  greskaY = greskaYNumber.value;
+  zadviziHoriznotalno(Number(horizontalnoDvizenjeNumber.value));
 }
-greskaNumber.oninput = function(){
-  if(this.value < -180) this.value = -180;
-  if(this.value > 180) this.value = 180;
-  
-  greskaSlider.value = this.value;
-  greska = this.value;
+greskaZNumber.oninput = function(){
+  greskaZ = greskaZNumber.value;
+  zadviziHoriznotalno(Number(horizontalnoDvizenjeNumber.value));
 }
 
-function zadviziHoriznotalno(rastojanie){
-  // TO DO
-  let a, b, c, alfa, beta;
+// FUNKCII
 
-  a = dolzinaStranaBSlider.value;
-  b = horizontalnoDvizenjeSlider.value;
-  c = 30;
-  console.log(a);
-  console.log(b);
-  console.log(c);
-  console.log("-------------------------------");
+function postaviServo1Agol(agol){
+  if(agol < 0) agol = 0;
+  if(agol > 180) agol = 180;
 
-  alfa = Math.acos((a * a - b * b - c * c) / (-2 * b * c));
-  beta = Math.acos((b * b - a * a - c * c) / (-2 * a * c));
+  servo1.style.transform = "rotate(" +(90 - agol)+ "deg)";
+
+  slider1.value = agol;
+  output1.value = agol;
+}
+function postaviServo2Agol(agol){
+  if(agol < 0) agol = 0;
+  if(agol > 180) agol = 180;
+
+  servo2.style.transform = "rotate(-" + agol + "deg)";
+
+  slider2.value = agol;
+  output2.value = agol;
+}
+
+function zadviziHoriznotalno(dolzina){
+  dolzina += Number(greskaY);
+
+  odiNaTocka(dolzina, greskaZ);
+}
+
+function odiNaTocka(y, z){
+  let a1 = dolzinaStranaBNumber.value, b1 = 30, a2 = z, b2 = y, c;
+  let alfa1, alfa2, alfa, beta;
+
+  c = Math.sqrt(a2*a2 + b2*b2);
+  alfa1 = Math.acos((a1*a1 - b1*b1 - c*c) / (-2 * b1 * c));
+  beta = Math.acos((c*c - a1*a1 - b1*b1) / (-2 * a1 * b1));
+  alfa2 = Math.atan(a2 / b2);
+  alfa = alfa1 + alfa2;
 
   alfa *= 180 / Math.PI;
   beta *= 180 / Math.PI;
-
   alfa = Math.floor(alfa);
   beta = Math.floor(beta);
+
+  if(isNaN(alfa)) alfa = greskaZ;
+  if(isNaN(beta)) beta = 180;
 
   postaviServo1Agol(alfa);
   postaviServo2Agol(beta);

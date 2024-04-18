@@ -22,26 +22,30 @@
         </div>
         <div class="input">
             <h3>ДОЛЖИНА СТРАНА a: </h3>
-            <input type="range" min="10" max="50" value="30" class="slider" id="dolzinaStranaBSlider">
-            <input type="number" min="10" max="50" value="30" class="number" id="dolzinaStranaBNumber">
+            <input type="range" min="10" max="100" value="30" class="slider" id="dolzinaStranaBSlider">
+            <input type="number" min="10" max="100" value="30" class="number" id="dolzinaStranaBNumber">
         </div>
         <div class="input">
-            <h3>ГРЕШКА: </h3>
-            <input type="range" min="-180" max="180" value="0" class="slider" id="greskaSlider">
-            <input type="number" min="-180" max="180" value="0" class="number" id="greskaNumber">
+            <h3>ГРЕШКА (y - оска): </h3>
+            <input type="number" min="-180" max="180" value="0" class="number" id="greskaYNumber">
+        </div>
+        <div class="input">
+            <h3>ГРЕШКА (z - оска): </h3>
+            <input type="number" min="-180" max="180" value="0" class="number" id="greskaZNumber">
         </div>
         <div class="input">
             <h3>ХОРИЗОНТАЛНО ДВИЖЕЊЕ: </h3>
             <input type="range" min="0" max="60" value="0" class="slider" id="horizontalnoDvizenjeSlider">
             <input type="number" min="0" max="60" value="0" class="number" id="horizontalnoDvizenjeNumber">
         </div>
-        <img src="formuli.png" style="width: 90%;">
     </div>
 
     <div class="raka">
         <hr class="list">
+        <hr class="list" style="width: 10px; border: 5px solid red; left: 60%; transform: translateY(-5px);">
         <div class="servo1">
             <div class="servo2">
+                <div class="penkalo"></div>
             </div>
         </div>
     </div>
